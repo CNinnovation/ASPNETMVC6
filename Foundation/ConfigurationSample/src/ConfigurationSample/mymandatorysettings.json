@@ -1,0 +1,8 @@
+﻿{
+  "mysetting1": "value 1",
+  "a": "9876",
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=aspnet-WebApplication1-e20f3b01-028e-44d8-adce-f71d988e0c1d;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+
+}
