@@ -1,0 +1,16 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using MyFirstMVCApp.Models
+@model IEnumerable<Book>
+
+
+
+    <h2>Using a model received from the controller</h2>
+    <ul>
+        @foreach (var book in Model)
+        {
+            <li>@book.Title</li>
+        }
+    </ul>
+
