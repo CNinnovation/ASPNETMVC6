@@ -14,7 +14,7 @@
 
 ## Add new objects
 
-1. Instantiate the context in the Main method
+1. Instantiate the context in the `Main` method
 2. Add new objects
 3. Save changes
 
@@ -23,3 +23,12 @@
 1. Override the configuring method of the context
 2. Configure to use SQL Server
 3. Add the necessary NuGet package
+4. Create a database on starting the application
+
+## Migrations
+
+1. Configure the *dotnet ef* tool in project.json
+2. Enable migrations with the project
+3. Change the model type by adding an additional property
+4. Define code migrations for the update
+5. Run migrations from code and using the dotnet tool 
