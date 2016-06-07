@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using MyFirstWebApp.Controllers;
 using MyFirstWebApp.Services;
 using Newtonsoft.Json;
-using MyFirstWebApp.Controllers;
-using MyFirstWebApp.Middleware;
+using System;
+using System.Linq;
+using System.Text.Encodings.Web;
 
 namespace MyFirstWebApp
 {
@@ -102,7 +99,7 @@ namespace MyFirstWebApp
                     }
                     catch (Exception ex)
                     {
-
+                        await context.Response.WriteAsync(ex.ToString());
                     }
                 });
             });
