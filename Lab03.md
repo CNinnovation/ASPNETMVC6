@@ -6,8 +6,8 @@
 4. Enable returning a static HTML page
 5. Use the *Map* method to create a simple route returning content to the client
 6. Return data that is sent passing a parameter to the client, e.g. `server:port/Sample3?x=Hello`
-7. Pass `x=&lt;h1&gt;Hello&lt;/h1&gt;' from the client and return
-8. Pass `x=&lt;script&gt;alert('hacker');&lt;/script&gt;' from the client and return it
+7. Pass `x=<h1>Hello</h1>` from the client and return
+8. Pass `x=<script>alert('hacker');</script>` from the client and return it
 9. Encode the data before returned to the client
 10. Use the *MapWhen* method to create a route with a condition
 11. Create a HTML form and return it, like:
