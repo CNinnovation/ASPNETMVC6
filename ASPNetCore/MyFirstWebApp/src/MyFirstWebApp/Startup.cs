@@ -28,6 +28,10 @@ namespace MyFirstWebApp
         {
             services.AddSingleton<IHelloService, HelloService>();
             services.AddTransient<HelloController>();
+
+            services.AddSession();
+            services.AddDistributedMemoryCache();
+
             Container = services.BuildServiceProvider();
         }
 
@@ -37,8 +41,34 @@ namespace MyFirstWebApp
         public void Configure(IApplicationBuilder app)
         {
             app.UseStaticFiles();
-            app.UseH1Middleware(new H1MiddlewareOptions { NeverStop = false });
-            // app.UseSession()
+            // app.UseH1Middleware(new H1MiddlewareOptions { NeverStop = false });
+            app.UseSession();
+
+            app.Map("/session", app1 =>
+            {
+                app1.Run(async (context) =>
+                {
+                    try
+                    {
+                        string sessionInfo = context.Session.GetString("MySession");
+                        if (string.IsNullOrEmpty(sessionInfo))
+                        {
+                            context.Session.SetString("MySession", $"session created at {DateTime.Now:T}");
+                            await context.Session.CommitAsync();
+                            await context.Response.WriteAsync($"session created at {DateTime.Now:T}");
+                        }
+                        else
+                        {
+                            await context.Response.WriteAsync($"session exists with this information: {sessionInfo}");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        await context.Response.WriteAsync(ex.ToString());
+                    }
+                });
+            });
+
 
             app.MapWhen(context => context.Request.Path.Value.Contains("one"), app1 =>
             {
