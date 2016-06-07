@@ -15,7 +15,8 @@ namespace MyFirstMVCApp.Services
             {
                 new Book { BookId = 1, Title = "Professional C# 6", Publisher = "Wrox Press" },
                 new Book { BookId = 2, Title = "Enterprise Services", Publisher = "AWL" },
-                new Book { BookId = 3, Title = "Programming Universal Apps", Publisher = "Self" }
+                new Book { BookId = 3, Title = "Programming Universal Apps", Publisher = "Self" },
+                new Book { BookId = 4, Title = "Professional C# 5 and .NET 4.5.1", Publisher = "Wrox Press" }
             };
     }
 }

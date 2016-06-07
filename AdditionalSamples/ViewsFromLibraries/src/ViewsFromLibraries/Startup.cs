@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using MyFirstMVCApp.Services;
+using Microsoft.AspNetCore.Mvc.Razor.Compilation;
+using Microsoft.CodeAnalysis;
+using ViewsFromLibraries.Features;
 
-namespace MyFirstMVCApp
+namespace ViewsFromLibraries
 {
     public class Startup
     {
@@ -16,32 +18,25 @@ namespace MyFirstMVCApp
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-            services.AddSingleton<IBooksRepository, BooksRepository>();
+            // string[] assemblyPaths = [""];
+            services.AddMvc().AddRazorOptions(options =>
+            {
+                options.ViewLocationExpanders.Add(new MyViewLocationExpander());
+                //Action<RoslynCompilationContext> previous = options.CompilationCallback;
+                //options.CompilationCallback = (context) =>
+                //{
+                //    previous?.Invoke(context);
+
+                //    var references = assemblyPaths.Select(MetadataReference.CreateFromFile).ToArray();
+
+                //};
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app)
         {
-            app.UseStaticFiles();
-            // app.UseMvcWithDefaultRoute();
-
-            app.UseMvc(route =>
-                route.MapRoute("default",
-                    "{controller}/{action}/{name?}",
-                    new { controller = "Home", action = "Index" }));
-
-            app.UseMvc(route =>
-                route.MapRoute("calc",
-                    "Calc/{action}/{x}/{y}",
-                    new { controller = "Home"}
-                    ));
-
-            app.UseMvc(route =>
-                route.MapRoute("lang",
-                    "{lang}/{controller}/{action}",
-                    new { lang = "en", controller = "Home", action = "Index" },
-                    constraints: new { lang = @"(en)|(de)" }));
+            app.UseMvcWithDefaultRoute();
 
             app.Run(async (context) =>
             {

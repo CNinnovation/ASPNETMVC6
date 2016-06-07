@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<h2>SPA Sample</h2>
+<script>
+    $(function () {
+        $("#getBooks").click(function () {
+            $("#books").load("/MyViews/MySecondPartialView");
+        });
+    });
+</script>
+
+
+<button id="getBooks">Get Books</button>
+<div id="books">
+
+</div>
+
+@section scriptsSection
+{
+<script src="~/lib/jQuery/dist/jquery.js"></script>
+
+}
+
+

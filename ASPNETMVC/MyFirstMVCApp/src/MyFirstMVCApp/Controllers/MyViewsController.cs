@@ -52,5 +52,27 @@ namespace MyFirstMVCApp.Controllers
         {
             return View();
         }
+
+        public IActionResult MySecondPartialView()
+        {
+            var books = _booksRepository.GetBooks();
+            return PartialView(books);
+        }
+
+        public IActionResult SPASample()
+        {
+            return View();
+        }
+
+        public IActionResult UseMyViewComponent()
+        {
+            return ViewComponent("MyCool", new Dictionary<string, object>()
+            {
+                ["publisher"] = "Wrox Press"
+            });
+        }
+
+        public IActionResult UseMyViewComponentWithAView() => View();
+
     }
 }

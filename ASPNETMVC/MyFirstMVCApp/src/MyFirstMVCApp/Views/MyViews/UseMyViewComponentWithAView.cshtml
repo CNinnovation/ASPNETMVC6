@@ -1,0 +1,12 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+<h2>This is the UseMyViewComponentWithAView</h2>
+
+
+@await Component.InvokeAsync("MyCool", new Dictionary<string, object>()
+{
+    ["publisher"] = "Wrox Press"
+})
