@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AAB907BC-0398-4D2D-AA41-40BE6BBFF5AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E47D8E20-4E8C-4FB3-A7C6-6702AE58A82A}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "EFCoreSample", "src\EFCoreSample\EFCoreSample.xproj", "{CBA7E53C-2B91-406C-B9F9-C3D800F41338}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBA7E53C-2B91-406C-B9F9-C3D800F41338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBA7E53C-2B91-406C-B9F9-C3D800F41338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBA7E53C-2B91-406C-B9F9-C3D800F41338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBA7E53C-2B91-406C-B9F9-C3D800F41338}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CBA7E53C-2B91-406C-B9F9-C3D800F41338} = {AAB907BC-0398-4D2D-AA41-40BE6BBFF5AE}
+	EndGlobalSection
+EndGlobal
