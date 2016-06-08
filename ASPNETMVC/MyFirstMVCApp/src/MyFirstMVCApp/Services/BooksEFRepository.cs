@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MyFirstMVCApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MyFirstMVCApp.Services
 {
@@ -27,12 +28,9 @@ namespace MyFirstMVCApp.Services
             _data.Dispose();
         }
 
-        public Task<IEnumerable<Book>> GetBooksAsync()
+        public async Task<IEnumerable<Book>> GetBooksAsync()
         {
-           
-            return null;
-            //_data.Books.
-            //IAsyncEnumerable<Book> books = _data.Books.ToAsyncEnumerable();
+            return await _data.Books.ToArrayAsync();
         }
     }
 }
