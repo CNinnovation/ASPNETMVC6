@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace MyFirstMVCApp.Models
 {
-    public class BooksContext
+    public class BooksContext : DbContext
     {
-        public IEnumerable<Book> Books { get; set; }
+        public BooksContext(DbContextOptions<BooksContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<Book> Books { get; set; }
     }
 }
