@@ -6,7 +6,7 @@ using MyFirstMVCApp.Models;
 
 namespace MyFirstMVCApp.Services
 {
-    public class BooksEFRepository : IBooksRepository2
+    public class BooksEFRepository : IBooksRepository2, IDisposable
     {
         private readonly BooksContext _data;
         public BooksEFRepository(BooksContext data)
@@ -22,8 +22,14 @@ namespace MyFirstMVCApp.Services
             await _data.SaveChangesAsync();
         }
 
+        public void Dispose()
+        {
+            _data.Dispose();
+        }
+
         public Task<IEnumerable<Book>> GetBooksAsync()
         {
+           
             return null;
             //_data.Books.
             //IAsyncEnumerable<Book> books = _data.Books.ToAsyncEnumerable();

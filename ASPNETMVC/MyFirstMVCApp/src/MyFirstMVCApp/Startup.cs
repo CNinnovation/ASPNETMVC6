@@ -37,7 +37,7 @@ namespace MyFirstMVCApp
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
             services.AddSingleton<IBooksRepository, BooksRepository>();
-            services.AddSingleton<IBooksRepository2, BooksEFRepository>();
+            services.AddScoped<IBooksRepository2, BooksEFRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
