@@ -31,4 +31,13 @@
 2. Enable migrations with the project
 3. Change the model type by adding an additional property
 4. Define code migrations for the update
-5. Run migrations from code and using the dotnet tool 
+5. Run migrations from code and using the dotnet tool
+
+## Entity Framework with ASP.NET MVC 6
+
+1. Add the required NuGet packages for Entity Framework to the project you created with previous labs
+2. Create an EF context for the entity type you created earlier
+3. Define the constructor needed with EF using dependency injection
+4. Configure the context in the dependency injection container
+5. Create the database programmatically
+5. Create a new controller to write a new record to the database
