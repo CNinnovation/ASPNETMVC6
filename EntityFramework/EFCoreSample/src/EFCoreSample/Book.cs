@@ -13,5 +13,7 @@ namespace EFCoreSample
         [MaxLength(80)]
         public string Title { get; set; }
         public string Publisher { get; set; }
+
+        public string MainAuthor { get; set; }
     }
 }

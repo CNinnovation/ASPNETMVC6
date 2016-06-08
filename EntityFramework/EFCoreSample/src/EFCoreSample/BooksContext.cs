@@ -23,6 +23,7 @@ namespace EFCoreSample
 
             modelBuilder.Entity<Book>().ToTable("Buecher");
             modelBuilder.Entity<Book>().Property(b => b.Publisher).HasMaxLength(20);
+            // modelBuilder.Entity<Book>().HasKey(b => b.BookId);
         }
     }
 }
