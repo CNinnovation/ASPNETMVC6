@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using MyFirstMVCApp.Extensions
+@model Book
+
+
+
+
+@*@using (Html.BeginForm("AddBook", "Books", FormMethod.Post))
+{
+    <input type="color" />
+
+        @Html.LabelFor(m => m.Title, new { @class="MyClass" })
+        @Html.TextBoxFor(m => m.Title)
+        <br />
+        @Html.LabelFor(m => m.Publisher)
+        @Html.TextBoxFor(m => m.Publisher)
+        <br />
+        <button type="submit">Submit</button>
+
+
+    }
+
+@* @Html.EditorFor(m => m)
+
+@Html.Foo(true)*@
+
+
+@using (Html.BeginForm("AddBook", "Books", FormMethod.Post))
+{
+    @Html.EditorForModel()
+    <br />
+    <button type="submit">Submit</button>
+
+}
+
+
+
+

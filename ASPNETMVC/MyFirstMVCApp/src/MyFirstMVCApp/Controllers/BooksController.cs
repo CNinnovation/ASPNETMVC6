@@ -22,12 +22,13 @@ namespace MyFirstMVCApp.Controllers
 
         public IActionResult AddBook()
         {
-            return View();
+            return View("AddBook2");
         }
 
         [HttpPost]
         public async Task<IActionResult> AddBook(Book book)
         {
+
             await _booksRepository.AddBookAsync(book);
             return Ok();
         }
