@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MyWebAPISample.Services;
+using Swashbuckle.SwaggerGen.Generator;
 
 namespace MyWebAPISample
 {
@@ -42,7 +39,20 @@ namespace MyWebAPISample
 
             services.AddSingleton<IBooksService, BooksService>();
 
-           
+            services.AddSwaggerGen();
+
+            services.ConfigureSwaggerGen(config =>
+            {
+                config.IgnoreObsoleteActions();
+                config.SingleApiVersion(new Info
+                {
+                    Description = "A sample for the ASP.NET MVC 6 workshop",
+                    Title = "Sample",
+                    Version = "v1.0"
+                });
+            });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
@@ -56,6 +66,10 @@ namespace MyWebAPISample
             app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseMvc();
+
+            app.UseSwaggerGen();
+
+            app.UseSwaggerUi();
         }
     }
 }
