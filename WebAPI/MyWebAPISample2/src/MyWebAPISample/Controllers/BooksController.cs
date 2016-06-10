@@ -21,9 +21,7 @@ namespace MyWebAPISample.Controllers
 
         // GET: api/values
         [HttpGet]
-        [ResponseCache(Location =ResponseCacheLocation.None, Duration =1)]
-        public Task<IEnumerable<Book>> Get() => 
-            _booksService.GetAllBooks();
+        public Task<IEnumerable<Book>> Get() => _booksService.GetAllBooks();
 
 
         // GET api/values/5

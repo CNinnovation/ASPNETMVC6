@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Communicate";
+}
+
+<h2>Communicate</h2>
+
+<script src="/Scripts/jquery-1.10.2.js"></script>
+<script src="/Scripts/jquery.signalR-2.1.2.js"></script>
+<script src="/signalr/hubs"></script>
+
+<script>
+    $(function () {
+        var chat = $.connection.myChatHub;
+        chat.client.broadcastmessage = function (name, message) {
+            var encodedName = $('<div />').text(name).html();
+            var encodeMessage = $('<div />').text(message).html();
+
+            $("#messages").append("<li>" + encodedName + "&nbsp;" + encodeMessage + "</li>");
+        };
+
+
+        $.connection.hub.start().done(function () {
+            $("#sendmessage").click(function () {
+                var name = $("#name").val();
+                var message = $("#message").val();
+                chat.server.send(name, message);
+            });
+        });
+
+    });
+</script>
+
+
+
+  Enter your name <input type="text" id="name" />
+<br />
+    Message <input type="text" id="message" />
+<button type="button" id="sendmessage">Send</button>
+<br />
+<ul id="messages"></ul>
+
